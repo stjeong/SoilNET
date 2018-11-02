@@ -7,7 +7,7 @@ SET PlatformTarget=x64
 msbuild ./projects/SoilProxy/SoilProxy.vcxproj /p:Platform=%PlatformTarget%;Configuration=Release;SolutionDir=%SOLUTIONDIR%
 
 SET PlatformTarget=AnyCPU
-nuget restore ./projects/Soil.NetCore/Soil.NetCore.csproj
+dotnet restore ./projects/Soil.NetCore/Soil.NetCore.csproj
 msbuild ./projects/Soil.NetCore/Soil.NetCore.csproj /p:Platform=%PlatformTarget%;Configuration=Release /t:Rebuild
 
 msbuild ./projects/Soil.NetFX4/Soil.NetFX4.csproj /p:Platform=%PlatformTarget%;Configuration=Release /t:Rebuild
@@ -24,6 +24,7 @@ robocopy ./x64/Release ./Output/lib/net40 SoilProxy64.dll SoilProxy64.pdb
 
 robocopy . ./Output SoilNET.nuspec
 
+mkdir nuget_package
 pushd Output
 nuget pack SoilNET.nuspec -OutputDirectory ..\nuget_package
 popd

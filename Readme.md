@@ -23,9 +23,41 @@ Install-Package SoilDotnet
 How to use
 ================================
 
+See /samples/GameApp.csproj.
 
 ```
-Install-Package SoilDotnet
+// glControl_ContextCreated at MainForm.cs
+
+private void glControl_ContextCreated(object sender, OpenGL.GlControlEventArgs e)
+{
+    // ...[omitted for brevity]...
+
+    bool result = Soil.NET.WrapSOIL.Initialize();
+    if (result == false)
+    {
+        MessageBox.Show("SOIL: Not initialized: " + Soil.NET.WrapSOIL.GetSoilLastError());
+        return;
+    }
+
+    // ...[omitted for brevity]...
+}
+```
+
+```
+// loadTexture at Loader.cs
+
+public uint loadTexture(string fileName)
+{
+    string filePath = $".\\res\\{fileName}.png";
+
+    uint tex2d_id = Soil.NET.WrapSOIL.load_OGL_texture(filePath,
+        Soil.NET.WrapSOIL.SOIL_LOAD.AUTO, Soil.NET.WrapSOIL.SOIL_NEW.ID,
+        Soil.NET.WrapSOIL.SOIL_FLAG.MIPMAPS | Soil.NET.WrapSOIL.SOIL_FLAG.INVERT_Y | 
+        Soil.NET.WrapSOIL.SOIL_FLAG.NTSC_SAFE_RGB | Soil.NET.WrapSOIL.SOIL_FLAG.COMPRESS_TO_DXT);
+
+    _textures.Add(tex2d_id);
+    return tex2d_id;
+}
 ```
 
 
