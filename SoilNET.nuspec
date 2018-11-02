@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>SoilDotnet</id>
+        <title>soil 1.16 for .NET Framework</title>
+        <version>1.0.0</version>
+        <authors>kevin13</authors>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>soil 1.16 for .NET Framework 4.x and .NET Standard</description>
+        <!--iconUrl></iconUrl-->
+        <tags>opengl soil v150 vs2017 managed</tags>
+
+        <dependencies>
+          <group targetFramework=".NETFramework4.0" />
+          <group targetFramework=".NETStandard2.0" />
+        </dependencies>
+    </metadata>
+    <!--files>
+        <file src="**\*.*" target="content" />
+        <file src="**\*.*" target="content" />
+    </files-->
+
+</package>
