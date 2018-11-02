@@ -69,6 +69,10 @@ If you want to make binaries from this project, just load and compile in Visual 
 Change Log
 ================================
 
+1.0.1 - Nov 02, 2018
+
+* No changes for binaries.
+
 1.0.0 - Nov 02, 2018
 
 * Initial checked-in

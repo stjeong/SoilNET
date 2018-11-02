@@ -3,7 +3,7 @@
     <metadata>
         <id>SoilDotnet</id>
         <title>soil 1.16 for .NET Framework</title>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <authors>kevin13</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>soil 1.16 for .NET Framework 4.x and .NET Standard</description>
