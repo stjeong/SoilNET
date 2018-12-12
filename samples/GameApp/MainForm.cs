@@ -16,10 +16,12 @@ namespace GameApp
     public partial class MainForm : Form
     {
         DisplayManager _displayManager = new DisplayManager();
+        Gl.DebugProc _debugProc;
 
         public MainForm()
         {
             InitializeComponent();
+            _debugProc = GLDebugMessageCallbackProc;
         }
 
         private void glControl_ContextCreated(object sender, OpenGL.GlControlEventArgs e)
@@ -28,7 +30,7 @@ namespace GameApp
 
             if (Gl.CurrentExtensions != null && Gl.CurrentExtensions.DebugOutput_ARB)
             {
-                Gl.DebugMessageCallback(GLDebugMessageCallbackProc, null);
+                Gl.DebugMessageCallback(_debugProc, IntPtr.Zero);
                 Gl.DebugMessageControl(Gl.DebugSource.DontCare, Gl.DebugType.DontCare, Gl.DebugSeverity.DontCare, 0, null, true);
             }
 

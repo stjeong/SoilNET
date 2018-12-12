@@ -3,21 +3,16 @@
     <metadata>
         <id>SoilDotnet</id>
         <title>soil 1.16 for .NET Framework</title>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <authors>kevin13</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>soil 1.16 for .NET Framework 4.x and .NET Standard</description>
-        <!--iconUrl></iconUrl-->
+        <!--iconUrl>if you send it to me, I'll use it.</iconUrl-->
         <tags>opengl soil v150 vs2017 managed</tags>
-
+        <projectUrl>https://github.com/stjeong/SoilNET</projectUrl>
         <dependencies>
           <group targetFramework=".NETFramework4.0" />
           <group targetFramework=".NETStandard2.0" />
         </dependencies>
     </metadata>
-    <!--files>
-        <file src="**\*.*" target="content" />
-        <file src="**\*.*" target="content" />
-    </files-->
-
 </package>
