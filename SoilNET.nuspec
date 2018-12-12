@@ -3,7 +3,7 @@
     <metadata>
         <id>SoilDotnet</id>
         <title>soil 1.16 for .NET Framework</title>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <authors>kevin13</authors>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>soil 1.16 for .NET Framework 4.x and .NET Standard</description>
@@ -14,5 +14,15 @@
           <group targetFramework=".NETFramework4.0" />
           <group targetFramework=".NETStandard2.0" />
         </dependencies>
+
+        <references>
+            <group targetFramework="net40">
+                <reference file="Soil.NetFX4.dll" />
+            </group>
+            <group targetFramework="netcoreapp">
+                <reference file="Soil.NetCore.dll" />
+            </group>
+        </references>
     </metadata>
+    
 </package>

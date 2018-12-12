@@ -33,6 +33,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{A923
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameApp", "samples\GameApp\GameApp.csproj", "{0C147242-C018-43C4-9852-3E1AD2532048}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{6807CCB8-ED75-4F06-9699-0549E0BA0AAA}"
+	ProjectSection(SolutionItems) = preProject
+		build\SoilDotnet.targets = build\SoilDotnet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -17,10 +17,12 @@ rmdir /q /s %SOLUTIONDIR%\nuget_package
 rmdir /q /s %SOLUTIONDIR%\Output
 rmdir /q /s %SOLUTIONDIR%\Output
 
-robocopy ./projects/Soil.NetCore/bin/Release/netstandard2.0 ./Output/lib/netstandard2.0
-robocopy ./x64/Release ./Output/lib/netstandard2.0 SoilProxy64.dll SoilProxy64.pdb
-robocopy ./projects/Soil.NetFX4/bin/Release/ ./Output/lib/net40
-robocopy ./x64/Release ./Output/lib/net40 SoilProxy64.dll SoilProxy64.pdb
+robocopy ./projects/Soil.NetCore/bin/Release/netstandard2.0 ./Output/lib/netstandard2.0 Soil.NetCore.*
+robocopy ./projects/Soil.NetFX4/bin/Release/ ./Output/lib/net40 Soil.NetFX4.*
+
+robocopy ./x64/Release ./Output/lib/runtimes SoilProxy64.dll SoilProxy64.pdb
+robocopy ./Release ./Output/lib/runtimes SoilProxy32.dll SoilProxy32.pdb
+robocopy ./build ./Output/build *.*
 
 robocopy . ./Output SoilNET.nuspec
 
@@ -31,8 +33,8 @@ popd
 
 if EXIST d:\settings\my.nuget.txt (
     SET /p NUGETKEY=<d:\settings\my.nuget.txt
-    nuget push .\nuget_package\SoilDotnet.1.0.1.nupkg %NUGETKEY% -src https://www.nuget.org/api/v2/package
+    nuget push .\nuget_package\SoilDotnet.1.0.2.nupkg %NUGETKEY% -src https://www.nuget.org/api/v2/package
 )
 
 
-REM Install-Package SoilDotnet -Version 1.0.1
+REM Install-Package SoilDotnet -Version 1.0.2
