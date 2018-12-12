@@ -69,6 +69,10 @@ If you want to make binaries from this project, just load and compile in Visual 
 Change Log
 ================================
 
+1.0.3 - Dec 12, 2018
+
+* Add check code whether opengl context is created.
+
 1.0.2 - Dec 12, 2018
 
 * Fixed: bug in GameApp sample code

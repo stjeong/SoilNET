@@ -2054,6 +2054,7 @@ typedef enum tagSOILErrorResult {
     SOIL_SUCCESS = 0,
     SOIL_ERROR_LOADLIBRARY = 1,
     SOIL_ERROR_GETPROCADDRESS = 2,
+    SOIL_ERROR_OPENGL_CONTEXT_NOT_CREATED = 4,
 } SOILErrorResult;
 
 HMODULE _hModule = NULL;
@@ -2076,11 +2077,25 @@ BOOL SOIL_Initialize(wchar_t *openglDLLFileName)
 
     _hModule = hModule;
 
+    glGetStringFunc glGetString = (glGetStringFunc)GetProcAddress(hModule, "glGetString");
+    if (glGetString == NULL)
+    {
+        _lastError = SOIL_ERROR_GETPROCADDRESS;
+        return FALSE;
+    }
+
+    GLubyte *capabilities = glGetString(GL_EXTENSIONS);
+    if (capabilities == NULL)
+    {
+        _lastError = SOIL_ERROR_OPENGL_CONTEXT_NOT_CREATED;
+        return FALSE;
+    }
+
+    _glGetString = glGetString;
     _glBindTexture = (glBindTextureFunc)GetProcAddress(hModule, "glBindTexture");
     _glDeleteTextures = (glDeleteTexturesFunc)GetProcAddress(hModule, "glDeleteTextures");
     _glGenTextures = (glGenTexturesFunc)GetProcAddress(hModule, "glGenTextures");
     _glGetIntegerv = (glGetIntegervFunc)GetProcAddress(hModule, "glGetIntegerv");
-    _glGetString = (glGetStringFunc)GetProcAddress(hModule, "glGetString");
     _glReadPixels = (glReadPixelsFunc)GetProcAddress(hModule, "glReadPixels");
     _glTexImage2D = (glTexImage2DFunc)GetProcAddress(hModule, "glTexImage2D");
     _glTexParameteri = (glTexParameteriFunc)GetProcAddress(hModule, "glTexParameteri");

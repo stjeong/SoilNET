@@ -33,8 +33,8 @@ popd
 
 if EXIST d:\settings\my.nuget.txt (
     SET /p NUGETKEY=<d:\settings\my.nuget.txt
-    nuget push .\nuget_package\SoilDotnet.1.0.2.nupkg %NUGETKEY% -src https://www.nuget.org/api/v2/package
+    nuget push .\nuget_package\SoilDotnet.1.0.3.nupkg %NUGETKEY% -src https://www.nuget.org/api/v2/package
 )
 
 
-REM Install-Package SoilDotnet -Version 1.0.2
+REM Install-Package SoilDotnet -Version 1.0.3
