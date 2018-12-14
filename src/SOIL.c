@@ -2084,7 +2084,7 @@ BOOL SOIL_Initialize(wchar_t *openglDLLFileName)
         return FALSE;
     }
 
-    GLubyte *capabilities = glGetString(GL_EXTENSIONS);
+    const GLubyte *capabilities = glGetString(GL_EXTENSIONS);
     if (capabilities == NULL)
     {
         _lastError = SOIL_ERROR_OPENGL_CONTEXT_NOT_CREATED;
